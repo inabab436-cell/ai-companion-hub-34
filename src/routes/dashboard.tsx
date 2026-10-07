@@ -11,6 +11,7 @@ import {
 import { HubTabBar } from "@/components/hub/hub-shell";
 import { MerchantProfileMenu } from "@/components/hub/merchant-profile-menu";
 import { SiteIdentity, SiteSettingsButton, SiteLinkCard } from "@/components/website/site-link-bar";
+import { ActivationCard } from "@/components/website/activation-card";
 import { useHubBadges, badgeText } from "@/lib/hub-badges";
 
 export const Route = createFileRoute("/dashboard")({
@@ -106,6 +107,7 @@ function DashboardPage() {
         </header>
 
         <main className="mx-auto max-w-6xl space-y-7 px-4 py-6 sm:px-6 lg:py-8">
+          <ActivationCard />
           <SiteLinkCard />
           <section>
             <div className="mb-4">
