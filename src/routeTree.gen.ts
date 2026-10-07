@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ActivateRouteImport } from './routes/activate'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AwaitingPaymentRouteImport } from './routes/awaiting-payment'
 import { Route as ContactsRouteImport } from './routes/contacts'
@@ -35,11 +34,6 @@ import { Route as CSlugTrackRouteImport } from './routes/c.$slug.track'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ActivateRoute = ActivateRouteImport.update({
-  id: '/activate',
-  path: '/activate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRoute = AdminRouteImport.update({
@@ -145,7 +139,6 @@ const CSlugTrackRoute = CSlugTrackRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/activate': typeof ActivateRoute
   '/admin': typeof AdminRoute
   '/awaiting-payment': typeof AwaitingPaymentRoute
   '/contacts': typeof ContactsRoute
@@ -169,7 +162,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/activate': typeof ActivateRoute
   '/admin': typeof AdminRoute
   '/awaiting-payment': typeof AwaitingPaymentRoute
   '/contacts': typeof ContactsRoute
@@ -193,7 +185,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/activate': typeof ActivateRoute
   '/admin': typeof AdminRoute
   '/awaiting-payment': typeof AwaitingPaymentRoute
   '/contacts': typeof ContactsRoute
@@ -219,7 +210,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/activate'
     | '/admin'
     | '/awaiting-payment'
     | '/contacts'
@@ -243,7 +233,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/activate'
     | '/admin'
     | '/awaiting-payment'
     | '/contacts'
@@ -266,7 +255,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/activate'
     | '/admin'
     | '/awaiting-payment'
     | '/contacts'
@@ -291,7 +279,6 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ActivateRoute: typeof ActivateRoute
   AdminRoute: typeof AdminRoute
   AwaitingPaymentRoute: typeof AwaitingPaymentRoute
   ContactsRoute: typeof ContactsRoute
@@ -318,13 +305,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/activate': {
-      id: '/activate'
-      path: '/activate'
-      fullPath: '/activate'
-      preLoaderRoute: typeof ActivateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -486,7 +466,6 @@ const CSlugRouteWithChildren = CSlugRoute._addFileChildren(CSlugRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ActivateRoute: ActivateRoute,
   AdminRoute: AdminRoute,
   AwaitingPaymentRoute: AwaitingPaymentRoute,
   ContactsRoute: ContactsRoute,
