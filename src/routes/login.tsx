@@ -161,6 +161,7 @@ function LoginPage() {
             dir="ltr"
             autoComplete="email"
             required
+            className="h-12"
             disabled={codeSent}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -177,6 +178,7 @@ function LoginPage() {
                 dir="ltr"
                 maxLength={6}
                 required
+                className="h-12 text-center text-lg tracking-[0.4em]"
                 value={code}
                 onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
               />
@@ -200,6 +202,7 @@ function LoginPage() {
               dir="ltr"
               autoComplete={mode === "login" ? "current-password" : "new-password"}
               required
+              className="h-12"
               disabled={mode === "signup" && codeSent}
               minLength={mode === "login" ? 1 : 8}
               value={password}
