@@ -146,6 +146,7 @@ function LoginPage() {
               required
               minLength={2}
               maxLength={80}
+              className="h-12"
               disabled={codeSent}
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -160,6 +161,7 @@ function LoginPage() {
             dir="ltr"
             autoComplete="email"
             required
+            className="h-12"
             disabled={codeSent}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -176,6 +178,7 @@ function LoginPage() {
                 dir="ltr"
                 maxLength={6}
                 required
+                className="h-12 text-center text-lg tracking-[0.4em]"
                 value={code}
                 onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
               />
@@ -199,6 +202,7 @@ function LoginPage() {
               dir="ltr"
               autoComplete={mode === "login" ? "current-password" : "new-password"}
               required
+              className="h-12"
               disabled={mode === "signup" && codeSent}
               minLength={mode === "login" ? 1 : 8}
               value={password}
@@ -220,17 +224,17 @@ function LoginPage() {
           </button>
         ) : null}
 
-        <div className="flex flex-wrap justify-between gap-2 text-sm">
+        <div className="flex flex-col items-center gap-1 text-sm sm:flex-row sm:justify-between sm:gap-2">
           {mode !== "login" ? (
-            <button type="button" className="text-primary hover:underline" onClick={() => switchMode("login")}>
+            <button type="button" className="py-1.5 text-primary hover:underline" onClick={() => switchMode("login")}>
               لديك حساب؟ سجّل الدخول
             </button>
           ) : (
             <>
-              <button type="button" className="text-primary hover:underline" onClick={() => switchMode("signup")}>
+              <button type="button" className="py-1.5 text-primary hover:underline" onClick={() => switchMode("signup")}>
                 إنشاء حساب جديد
               </button>
-              <button type="button" className="text-muted-foreground hover:underline" onClick={() => switchMode("reset")}>
+              <button type="button" className="py-1.5 text-muted-foreground hover:underline" onClick={() => switchMode("reset")}>
                 نسيت كلمة المرور؟
               </button>
             </>
