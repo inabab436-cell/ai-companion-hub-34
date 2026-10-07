@@ -146,6 +146,7 @@ function LoginPage() {
               required
               minLength={2}
               maxLength={80}
+              className="h-12"
               disabled={codeSent}
               value={name}
               onChange={(e) => setName(e.target.value)}
