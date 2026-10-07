@@ -224,17 +224,17 @@ function LoginPage() {
           </button>
         ) : null}
 
-        <div className="flex flex-wrap justify-between gap-2 text-sm">
+        <div className="flex flex-col items-center gap-1 text-sm sm:flex-row sm:justify-between sm:gap-2">
           {mode !== "login" ? (
-            <button type="button" className="text-primary hover:underline" onClick={() => switchMode("login")}>
+            <button type="button" className="py-1.5 text-primary hover:underline" onClick={() => switchMode("login")}>
               لديك حساب؟ سجّل الدخول
             </button>
           ) : (
             <>
-              <button type="button" className="text-primary hover:underline" onClick={() => switchMode("signup")}>
+              <button type="button" className="py-1.5 text-primary hover:underline" onClick={() => switchMode("signup")}>
                 إنشاء حساب جديد
               </button>
-              <button type="button" className="text-muted-foreground hover:underline" onClick={() => switchMode("reset")}>
+              <button type="button" className="py-1.5 text-muted-foreground hover:underline" onClick={() => switchMode("reset")}>
                 نسيت كلمة المرور؟
               </button>
             </>
